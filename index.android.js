@@ -32,11 +32,40 @@ class Greeting extends Component {
 class LotsOfGreetings extends Component {
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
+      <View>
+        <Blink text='wesemele'/>
+        <Blink text='wesemele'/>
+        <Blink text='wesemele'/>
+        <Blink text='wesemele'/>
       </View>
+    );
+  }
+}
+
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {showText : true};
+
+    setInterval(()=>{
+      this.setState({ showText: !this.state.showText });
+    },10);
+  }
+
+  render() {
+    let display = this.state.showText ? this.props.text : ' ';
+    return (
+      <Text>{display}</Text>
+    );
+  }
+}
+
+class Name extends Component {
+  render(){
+    return (
+      <Text>
+        {this.props.text}
+      </Text>
     );
   }
 }

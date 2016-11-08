@@ -13,19 +13,34 @@ import {
 } from 'react-native';
 
 
-
 class AwesomeProject extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Hello world!</Text>
-        <Text style={styles.welcome}>
-          welcome jon!!!
-        </Text>
+      <LotsOfGreetings/>
+    );
+  }
+}
+
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+class LotsOfGreetings extends Component {
+  render() {
+    return (
+      <View style={{alignItems: 'center'}}>
+        <Greeting name='Rexxar' />
+        <Greeting name='Jaina' />
+        <Greeting name='Valeera' />
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
